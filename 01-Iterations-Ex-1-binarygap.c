@@ -10,13 +10,15 @@ int solution(int N) {
     
     curr = 0;
     count = 0;
+	//Converted to binary
     while (i < size) {
         a[i] = (N & (1<<i)) >> i;
         i++;
     }
     
-	curr = 0;
-	count =0;
+	//Primitive search method
+	curr  = 0;
+	count = 0;
     for (i=0;i<size;i++) {
     	if(checkwithMax==1 && a[i] == 1) {
 			checkwithMax=0;
@@ -36,7 +38,6 @@ int solution(int N) {
 		}
 	}
     //printf ("\nSolution(%d): %d\n", N, count);
-	
     return count;
 }
 
