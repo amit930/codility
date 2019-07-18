@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* NOTE: Returns the index of the dominator element 'leader'; the leader of the array can be obtained from the leader variable */
 int solution(int A[], int N) {
     // write your code in C99 (gcc 6.2.0)
-    int i, count = 0, leader = -1;
+    int i, count = 0, leader = -1, idx = -1;
     for (i=0;i<N;i++) {
         if (count == 0) {
             leader = A[i];
@@ -13,9 +14,12 @@ int solution(int A[], int N) {
     }
     count = 0;
     for (i=0;i<N;i++) {
-        if (A[i] == leader) count++;
+        if (A[i] == leader) {
+            count++;
+            idx = i;
+        }
     }
-    if (count > N/2) return leader;
+    if (count > N/2) return idx;
     return -1;
 }
 
