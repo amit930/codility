@@ -53,3 +53,10 @@ int solution(int A[], int N) {
     }
     return equileaders;
 }
+
+int main ()
+{
+    int a[] = {4,3,4,4,4,2};
+    printf("%d\n", solution(a, 6));
+    return 0;
+}
