@@ -6,20 +6,18 @@ int cmp( const void* p, const void* q)
 }
 
 int solution(int A[], int N) {
-	int i, ans = 1;
-  
+  int i, ans = 1;
   qsort(A, N, sizeof(int), cmp);
-	if (A[0] > 1) return 1;
-	if (A[0] == 1 && N == 1) return 2;
-	
-	for (i=0;i<N-1;i++) {
+  if (A[0] > 1) return 1;
+  if (A[0] == 1 && N == 1) return 2;
+  for (i=0;i<N-1;i++) {
     if (A[i] < 0) continue; //negative
     if (A[i+1] == 1 + A[i]) { //1,2,3,4...... 
-			ans = ans > A[i+1] ? A[i+1] : ans;
-			ans = A[i+1] + 1;
-		} else if (A[i+1] == A[i]) { //1,2,2,3,3,4
-			ans = ans > (A[i+1] + 1 ) ? A[i+1] + 1 : ans;
-		} else { //1,2,4,5,6
+      ans = ans > A[i+1] ? A[i+1] : ans;
+      ans = A[i+1] + 1;
+    } else if (A[i+1] == A[i]) { //1,2,2,3,3,4
+      ans = ans > (A[i+1] + 1 ) ? A[i+1] + 1 : ans;
+    } else { //1,2,4,5,6
       ans = ans > (A[i] + 1 ) ? A[i]+1 :  ans;
       break;
     }
