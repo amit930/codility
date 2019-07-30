@@ -5,7 +5,7 @@ int cmp( const void* p, const void* q)
     return ( *(int *)p - *(int *)q );
 }
 
-int solution(int A[], int N) {    
+int solution(int A[], int N) {
 	int i, ans = 1;
   
   qsort(A, N, sizeof(int), cmp);
